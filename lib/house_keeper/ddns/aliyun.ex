@@ -67,6 +67,6 @@ defmodule Keeper.DDNS.Aliyun do
     DateTime.utc_now() |> DateTime.truncate(:second) |> DateTime.to_iso8601()
   end
 
-  def random, do: UUID.uuid4()
+  def random, do: Ecto.UUID.generate()
   def encode(str), do: URI.encode(str, &URI.char_unreserved?/1)
 end
