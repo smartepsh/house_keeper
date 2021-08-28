@@ -18,12 +18,14 @@ defmodule KeeperWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/ddns", DDNSController, :show
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", KeeperWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", KeeperWeb do
+    pipe_through :api
+    put "/ddns", DDNSController, :update
+  end
 
   # Enables LiveDashboard only for development
   #

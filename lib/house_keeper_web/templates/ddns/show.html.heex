@@ -1,0 +1,26 @@
+<h1>DDNS</h1>
+
+<h3> <%= description() %> </h3>
+<pre> <%= script() %> </pre>
+
+<h2>Status</h2>
+
+<ul>
+  <li>
+    <strong>WAN IP: <%= if @wan_ip, do: @wan_ip, else: "None" %></strong>
+  </li>
+  <li>
+    <strong>Requested at: <%= if @requested_at, do: @requested_at, else: "None" %></strong>
+  </li>
+  <li>
+    <strong>Updated at: <%= if @updated_at, do: @updated_at, else: "None" %></strong>
+  </li>
+  <%= if @error_code do %>
+    <li>
+      <strong>Error code: <%=  @error_code %></strong>
+    </li>
+    <li>
+      <strong>Error reason: <%=  @error_reason %></strong>
+    </li>
+    <% end %>
+</ul>
