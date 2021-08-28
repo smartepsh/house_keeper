@@ -15,9 +15,10 @@ defmodule Keeper.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Keeper.PubSub},
       # Start the Endpoint (http/https)
-      KeeperWeb.Endpoint
+      KeeperWeb.Endpoint,
       # Start a worker by calling: Keeper.Worker.start_link(arg)
       # {Keeper.Worker, arg}
+      Keeper.DDNS.Server
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
